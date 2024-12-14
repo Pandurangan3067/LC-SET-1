@@ -1,12 +1,26 @@
 int mySqrt(int x) {
-    long long int sqr=0,i;
-    for(i=1;i<=x;i++)
+     if(x==0 || x==1)
+   return x;
+   else
+   {  
+    int a=1,b=x,sqr=0,mid=0;
     {
-        if((i*i<=x)&&((i+1)*(i+1)>x))
+        while(a<=b)
         {
-            sqr=i;
-            break;
+            mid=a+b/2;
+            if(mid*mid==x)
+              return mid;
+            if(mid*mid<x)
+            {
+                a=mid+1;
+                sqr=mid;
+            }
+            else
+            {
+              b=mid-1;  
+            }
         }
+       return sqr;
     }
-    return sqr;
+  }  
 }
